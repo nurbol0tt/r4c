@@ -1,0 +1,44 @@
+<!-- templates/create_robot.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Robot</title>
+</head>
+<body>
+    <h1>Create Robot</h1>
+    <form method="POST" id="robot-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+    <script>
+        document.getElementById('robot-form').onsubmit = async function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const jsonData = {
+                serial: formData.get('serial'),
+                model: formData.get('model'),
+                version: formData.get('version'),
+                created: formData.get('created')
+            };
+
+            const response = await fetch('/create-robot/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(jsonData)
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                alert("Robot created successfully");
+            } else {
+                alert("Error: " + JSON.stringify(result));
+            }
+        };
+    </script>
+</body>
+</html>
