@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Скачать сводку по роботам</title>
+</head>
+<body>
+    <h1>Скачать сводку по роботам</h1>
+    <form action="{% url 'download_robot_summary' %}" method="get">
+        <button type="submit">Скачать Excel-файл</button>
+    </form>
+</body>
+</html>
