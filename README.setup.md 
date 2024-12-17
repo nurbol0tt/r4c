@@ -1,0 +1,45 @@
+# TestShop
+
+- [Installation](#installation)
+
+## Installation
+
+1. Clone the repository:
+    ```
+    git clone https://github.com/nurbol0tt/r4c.git
+    ```
+
+2. Create a virtual environment:
+    ```
+    cd my-project
+    python -m venv env
+    ```
+
+3. Activate the virtual environment:
+   * For Windows:
+      ```
+      .\env\Scripts\activate
+      ```
+   * For Unix/macOS:
+      ```
+      source env/bin/activate
+      ```
+
+
+4. Install the dependencies:
+    ```
+    pip install -r req.txt
+    ```
+
+5. Perform database migrations:
+   ```
+   python manage.py migrate
+   ```
+
+6. Run the development server:
+
+   ```
+   python manage.py runserver
+   ```
+
+7. Access the application at http://localhost:8000.
